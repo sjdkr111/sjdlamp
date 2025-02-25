@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sjd-kryni</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        .lamp-container {
+            position: relative;
+            text-align: center;
+        }
+        .lamp-holder {
+            width: 30px;
+            height: 40px;
+            background-color: #444;
+            margin: 0 auto;
+            border-radius: 5px;
+        }
+        .lamp {
+            width: 100px;
+            height: 140px;
+            background-color: #777;
+            border-radius: 50px 50px 10px 10px;
+            position: relative;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 10px;
+        }
+        .bulb {
+            width: 60px;
+            height: 60px;
+            background-color: gray;
+            border-radius: 50%;
+            transition: background-color 0.5s, box-shadow 0.5s;
+        }
+        .light {
+            position: absolute;
+            width: 120px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(255, 255, 100, 0.8) 0%, rgba(255, 255, 0, 0.1) 80%);
+            opacity: 0;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: opacity 0.5s ease-in-out;
+        }
+        .switch {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #555;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .switch:hover {
+            background-color: #777;
+        }
+        /* تشغيل الضوء */
+        .lamp-on .bulb {
+            background-color: yellow;
+            box-shadow: 0 0 40px yellow;
+        }
+        .lamp-on .light {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="lamp-container">
+        <div class="lamp-holder"></div>
+        <div class="lamp">
+            <div class="bulb"></div>
+        </div>
+        <div class="light"></div>
+    </div>
+    
+    <button class="switch" onclick="toggleLamp()">تشغيل / إيقاف</button>
+
+    <script>
+        function toggleLamp() {
+            document.querySelector('.lamp-container').classList.toggle('lamp-on');
+        }
+    </script>
+    
+    
+
+</body>
+</html>
